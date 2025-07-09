@@ -1,29 +1,8 @@
-let carrinho = [];
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menu-btn");
+    const sidebar = document.getElementById("sidebar");
 
-document.querySelectorAll(".produto").forEach((produtoDiv) => {
-    const botao = produtoDiv.querySelector("button");
-
-    botao.addEventListener("click", () => {
-        const nome = produtoDiv.querySelector("h2").textContent;
-        const preco = produtoDiv.querySelector("strong").textContent;
-        
-        const produto = {
-            nome,
-            preco
-        };
-
-        carrinho.push(produto);
-        atualizarCarrinho();
-        
-        function atualizarCarrinho() {
-            const lista = document.getElementById("lista-carrinho");
-            lista.innerHTML = "";
-
-            carrinho.forEach((item) => {
-                const li = document.createElement("li");
-                li.textContent = `${item.nome} - ${item.preco}`;
-                lista.appendChild(li);
-            });
-        }
+    menuBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
     });
 });
